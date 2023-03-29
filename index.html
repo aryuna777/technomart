@@ -1,234 +1,152 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>Кекстаграм</title>
-</head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="style.css">
+<title>Интернет-магазин Technomart </title>
+</head> 
+<header class="header">
+<img src="img/top background.svg" alt="Technomart" class="header_img">
+<a class="logo header__logo">
+<img src="img/logo.svg" alt="Technomart" class="logo_text header__logo_text" width="100"> </a>   
+<div class="header__layer"> 
+<a href="#" class="header__layer_text header__layer__search">Поиск</a>
+<a href="#" class="header__layer_text header__layer__mark"> Закладки:</a>
+<a href="#" class="header__layer_text header__layer__basket">Корзина</a>
+<a href="#" class="header__layer_text header__layer__order">Оформить заказ</a>
+<img src="img/icon-search.svg" alt="Technomart" class="header__search" width="17">
+<img src="img/mark.svg" alt="Technomart" class="header__mark" width="17">
+<img src="img/icon-cart.svg" alt="Technomart" class="header__cart" width="17">
+<img src="img/order.png" alt="Technomart" class="header__order" width="200" height="68">
+</div>
+<div class="header__section">
+<a class ="header__section_text">  Интернет-магазин строительных материалов и инструментов для ремонта </a>
+<p class="header__section_box">
+<a href=”tel:+88005556828” class="header__phone" color = "#ffffff"> +7 800 555-86-28</a> </p>
+<img src="img/phone.svg" alt="Technomart" class="section__phone" width="20"> </a>  
+<div class="header__section_address"> г. Санкт-Петербург, наб. Реки Карповки, 5 лит П </div>
+<div class="header__exit"></div>
+<div class="header__reg"></div>
+<a href="#"><p class="header__section_tx header__section_text_exit"> Войти </p> </a>
+<a href="#"><p class="header__section_tx header__section_text_reg"> Регистрация </p></a>
+</div>
+<nav class="menu">
+<a href="#" class="header__menu header__menu_home">Главная</a>
+<a href="#" class="header__menu header__menu_com">Компания</a>
+<a href="#" class="header__menu header__menu_cot">Каталог</a>
+<a href="#" class="header__menu header__menu_news">Новости</a>
+<a href="#" class="header__menu header__menu_spec">Спецпредложения</a>
+<a href="#" class="header__menu header__menu_dos">Доставка</a>
+<a href="#" class="header__menu header__menu_cont ">Контакты</a>
+</nav>
+</header>
 <body>
-  <main>
-
-    <!-- Фильтрация изображений от других пользователей -->
-    <section class="img-filters  img-filters--inactive  container">
-      <h2 class="img-filters__title  visually-hidden">Фильтр фотографий</h2>
-      <form class="img-filters__form" action="index.html" method="get" autocomplete="off">
-        <button type=button class="img-filters__button  img-filters__button--active" id="filter-default">По умолчанию</button>
-        <button type=button class="img-filters__button" id="filter-random">Случайные</button>
-        <button type=button class="img-filters__button" id="filter-discussed">Обсуждаемые</button>
-      </form>
-    </section>
-
-    <!-- Контейнер для изображений от других пользователей -->
-    <section class="pictures  container">
-      <h2 class="pictures__title  visually-hidden">Фотографии других пользователей</h2>
-
-      <!-- Поле для загрузки нового изображения на сайт -->
-      <section class="img-upload">
-        <div class="img-upload__wrapper">
-          <h2 class="img-upload__title  visually-hidden">Загрузка фотографии</h2>
-          <form class="img-upload__form" id="upload-select-image" method="post" enctype="multipart/form-data" autocomplete="off">
-
-            <!-- Изначальное состояние поля для загрузки изображения -->
-            <fieldset class="img-upload__start">
-              <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required>
-              <label for="upload-file" class="img-upload__label  img-upload__control">Загрузить</label>
-            </fieldset>
-
-            <!-- Форма редактирования изображения -->
-            <div class="img-upload__overlay  hidden">
-              <div class="img-upload__wrapper">
-                <div class="img-upload__preview-container">
-
-                  <!-- Изменение размера изображения -->
-                  <fieldset class="img-upload__scale  scale">
-                    <button type="button" class="scale__control  scale__control--smaller">Уменьшить</button>
-                    <input type="text" class="scale__control  scale__control--value" value="55%" title="Image Scale" name="scale" readonly>
-                    <button type="button" class="scale__control  scale__control--bigger">Увеличить</button>
-                  </fieldset>
-
-                  <!-- Предварительный просмотр изображения -->
-                  <div class="img-upload__preview">
-                    <img src="img/upload-default-image.jpg" alt="Предварительный просмотр фотографии">
-                  </div>
-
-                  <!-- Изменение глубины эффекта, накладываемого на изображение -->
-                  <fieldset class="img-upload__effect-level  effect-level">
-                    <input class="effect-level__value" type="number" name="effect-level" value="">
-                    <div class="effect-level__slider"></div>
-                  </fieldset>
-
-                  <!-- Кнопка для закрытия формы редактирования изображения -->
-                  <button type="reset" class="img-upload__cancel  cancel" id="upload-cancel">Закрыть</button>
-                </div>
-
-                <!-- Наложение эффекта на изображение -->
-                <fieldset class="img-upload__effects  effects">
-                  <ul class="effects__list">
-                    <li class="effects__item">
-                      <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-none" value="none" checked>
-                      <label for="effect-none" class="effects__label">
-                        <span class="effects__preview  effects__preview--none">Превью фото без эффекта</span>
-                        Оригинал
-                      </label>
-                    </li>
-                    <li class="effects__item">
-                      <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-chrome" value="chrome">
-                      <label for="effect-chrome" class="effects__label">
-                        <span class="effects__preview  effects__preview--chrome">Превью эффекта Хром</span>
-                        Хром
-                      </label>
-                    </li>
-                    <li class="effects__item">
-                      <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-sepia" value="sepia">
-                      <label for="effect-sepia" class="effects__label">
-                        <span class="effects__preview  effects__preview--sepia">Превью эффекта Сепия</span>
-                        Сепия
-                      </label>
-                    </li>
-                    <li class="effects__item">
-                      <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-marvin" value="marvin">
-                      <label for="effect-marvin" class="effects__label">
-                        <span class="effects__preview  effects__preview--marvin">Превью эффекта Марвин</span>
-                        Марвин
-                      </label>
-                    </li>
-                    <li class="effects__item">
-                      <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-phobos" value="phobos">
-                      <label for="effect-phobos" class="effects__label">
-                        <span class="effects__preview  effects__preview--phobos">Превью эффекта Фобос</span>
-                        Фобос
-                      </label>
-                    </li>
-                    <li class="effects__item">
-                      <input type="radio" class="effects__radio  visually-hidden" name="effect" id="effect-heat" value="heat">
-                      <label for="effect-heat" class="effects__label">
-                        <span class="effects__preview  effects__preview--heat">Превью эффекта Зной</span>
-                        Зной
-                      </label>
-                    </li>
-                  </ul>
-                </fieldset>
-
-                <!-- Добавление хэш-тегов и комментария к изображению -->
-                <fieldset class="img-upload__text text">
-                  <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
-                  <textarea class="text__description" name="description" placeholder="Ваш комментарий..."></textarea>
-                </fieldset>
-
-                <!-- Кнопка для отправки данных на сервер -->
-                <button type="submit" class="img-upload__submit" id="upload-submit">Опубликовать</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <!-- Здесь будут изображения других пользователей -->
-
-    </section>
-
-    <!-- Полноэкранный показ изображения -->
-    <section class="big-picture  overlay  hidden">
-      <h2 class="big-picture__title  visually-hidden">Просмотр фотографии</h2>
-      <div class="big-picture__preview">
-
-        <!-- Просмотр изображения -->
-        <div class="big-picture__img">
-          <img src="img/logo-background-3.jpg" alt="Девушка в купальнике" width="600" height="600">
-        </div>
-
-        <!-- Информация об изображении. Подпись, комментарии, количество лайков -->
-        <div class="big-picture__social  social">
-          <div class="social__header">
-            <img class="social__picture" src="img/avatar-1.svg" alt="Аватар автора фотографии" width="35" height="35">
-            <p class="social__caption">Тестим новую камеру! =)</p>
-            <p class="social__likes">Нравится <span class="likes-count">356</span></p>
-          </div>
-
-          <!-- Комментарии к изображению -->
-          <div class="social__comment-count">5 из <span class="comments-count">125</span> комментариев</div>
-          <ul class="social__comments">
-            <li class="social__comment">
-              <img class="social__picture" src="img/avatar-4.svg" alt="Аватар комментатора фотографии" width="35" height="35">
-              <p class="social__text">Мега фото! Просто обалдеть. Как вам так удалось?</p>
-            </li>
-            <li class="social__comment">
-              <img class="social__picture" src="img/avatar-3.svg" alt="Аватар комментатора фотографии" width="35" height="35">
-               <p class="social__text">Да это фоташоп!!!!!!!!</p>
-            </li>
-          </ul>
-
-          <!-- Кнопка для загрузки новой порции комментариев -->
-          <button type="button" class="social__comments-loader  comments-loader">Загрузить еще</button>
-
-          <!-- Форма для отправки комментария -->
-          <div class="social__footer">
-            <img class="social__picture" src="img/avatar-6.svg" alt="Аватар комментатора фотографии" width="35" height="35">
-            <input type="text" class="social__footer-text" placeholder="Ваш комментарий...">
-            <button type="button" class="social__footer-btn" name="button">Отправить</button>
-          </div>
-        </div>
-
-        <!-- Кнопка для выхода из полноэкранного просмотра изображения -->
-        <button type="reset" class="big-picture__cancel  cancel" id="picture-cancel">Закрыть</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="page-footer  container">
-    <div class="page-footer__wrapper">
-      <div class="page-footer__copyright  copyright">
-        <a class="copyright__link  copyright__link--image" href="https://htmlacademy.ru/intensive/javascript"><img src="img/htmla-logo.svg" width="130" height="45" alt="HTML Academy"></a>
-        <p>Сделано в <a class="copyright__link  copyright__link--text" href="https://htmlacademy.ru/intensive/javascript">HTML Academy</a></p>
-      </div>
-      <ul class="page-footer__contacts  contacts">
-        <li><a href="https://twitter.com/htmlacademy_ru" class="contacts__link  contacts__link--twitter">Twitter</a></li>
-        <li><a href="https://www.instagram.com/htmlacademy/" class="contacts__link  contacts__link--instagram">Instagtam</a></li>
-        <li><a href="https://www.facebook.com/htmlacademy" class="contacts__link  contacts__link--facebook">Facebook</a></li>
-        <li><a href="https://vk.com/htmlacademy" class="contacts__link  contacts__link--vk">VK</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <!-- Шаблон изображения случайного пользователя -->
-  <template id="picture">
-    <a href="#" class="picture">
-      <img class="picture__img" src="" width="182" height="182" alt="Случайная фотография">
-      <p class="picture__info">
-        <span class="picture__comments"></span>
-        <span class="picture__likes"></span>
-      </p>
-    </a>
-  </template>
-
-  <!-- Сообщение с ошибкой загрузки изображения -->
-  <template id="error">
-    <section class="error">
-      <div class="error__inner">
-        <h2 class="error__title">Ошибка загрузки файла</h2>
-        <button type="button" class="error__button">Загрузить другой файл</button>
-      </div>
-    </section>
-  </template>
-
-  <!-- Сообщение об успешной загрузке изображения -->
-  <template id="success">
-    <section class="success">
-      <div class="success__inner">
-        <h2 class="success__title">Изображение успешно загружено</h2>
-        <button type="button" class="success__button">Круто!</button>
-      </div>
-    </section>
-  </template>
-
-  <!-- Экран загрузки изображения -->
-  <template id="messages">
-    <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
-  </template>
-
+<main class = "main"> 
+<p class ="banners">
+<a href="#"> <img src="img/materials.svg" alt="Technomart" class="main__banners_material " width="350"> </a>
+<a href="#"> <img src="img/tools.svg" alt="Technomart" class="main__banners_material " width="350"> </a>
+<a href="#"> <img src="img/tech.svg" alt="Technomart" class="main__banners_material " width="350"> </a>
+<a href="#"> <img src="img/perforator.svg" alt="Technomart" class="main__banners_big" width="733"> 
+    <a href="#">  <button type="submit" class="button button__main__banners"> <div class="button_text"> ОТКРЫТЬ КАТАЛОГ </div> </a></form> </button>
+</a>
+<a href="#"> <img src="img/sale50.svg" alt="Technomart" class="main__banners_row_sale" width="350"> </a>
+<a href="#"> <img src="img/delivery.svg" alt="Technomart" class="main__banners_row_del " width="350"> </a>
+</p>
+</main>
+<div class = "section__catalog"> 
+<div class = "section__catalog section__catalog_caption section__catalog_caption_pos"><a href="#"><button type="submit"class="section__catalog button section__catalog__button"><div class="section__catalog button_text"> все популярные товары</div></button> </a>
+<a class="section__catalog section__catalog_text section__catalog_text_pos"> Популярные товары: </a></div> </div>
+<div class="ctlg__goods"> 
+<p class = "ctlg__catalog_gds catalog_gds_one"> 
+<img src="img/gds0.png" alt="Technomart" class="sctng__catalog__img_gdsone" width=""> 
+<div class ="catalog__goods_name goods_one">Перфоратор BOSCH <br> BFG 9000</div>
+<div class =" catalog__goods_strtext goods_strtext_one">32500 Р. </div>
+<p class ="catalog__goods__arrow"><a href="#"><img src="img/arrow.svg" alt="Technomart" class="arrow_pink arrow_pink_one" > <div class ="catalog__goods_text_white text_white_one">25500 Р. </div> </a> </p>
+</p>
+<p class = "section__catalog_goods catalog_gds_two"> 
+    <img src="img/gds2.svg" alt="Technomart" class="catalog_gds_two sctng__catalog__img_gdstwo" width="184"> 
+    <div class =" catalog_gds_two catalog__goods_name goods_two">Перфоратор BOSCH<br>BFG 3000</div>
+    <div class ="catalog_gds_two catalog__goods_strtext goods_strtext_two">22500 Р. </div>
+    <p class ="catalog_gds_two catalog__goods__arrow"> <a href="#"> <img src="img/arrow.svg" alt="Technomart" class="arrow_pink arrow_pink_two" > <div class ="catalog_gds_two catalog__goods_text_white text_white_two">15500 Р. </div></a> </p>
+    </p>
+<p class = "section__catalog_goods catalog_gds_three"> 
+    <img src="img/gds3.svg" alt="Technomart" class="catalog_gds_three sctng__catalog__img_gdsthree" width="184"> 
+    <div class ="catalog_gds_three  catalog__goods_name goods_three">Перфоратор BOSCH <br>BFG 6000</div>
+    <div class ="catalog_gds_three  catalog__goods_strtext goods_strtext_three">30500 Р. </div>
+    <p class ="catalog_gds_three catalog__goods__arrow"> <a href="#"> <img src="img/arrow.svg" alt="Technomart" class="catalog_gds_three arrow_pink arrow_pink_three" > <div class ="catalog_gds_three catalog__goods_text_white text_white_three">25500 Р. </div> </a> </p>
+    </p>
+<p class = "section__catalog_goods catalog_gds_four"> 
+    <img src="img/gds4.svg" alt="Technomart" class="sctng__catalog__img_gdsfour" width="184"> 
+    <div class ="catalog__goods_name goods_four">Перфоратор BOSCH<br>BFG 2000</div>
+    <div class ="catalog__goods_strtext goods_strtext_four">22500 Р. </div>
+    <p class ="catalog__goods__arrow"> <a href="#"> <img src="img/arrow.svg" alt="Technomart" class="arrow_pink arrow_pink_four" > <div class ="catalog__goods_text_white text_white_four">12500 Р. </div> </a> </p>
+    </p>      
+</div>
+<div class = "section__catalog"> 
+<div class = "section__catalog_caption section__producer__block"><a href="#"><button type="submit"class="button section__producer__block_button"><div class="button_text section__producer__block_button_text">все производители</div></button> </a>
+<a class="section__catalog_text section__producer__block_text"> Популярные производители: </a></div> </div>
+<div class = "section__partners"> 
+    <div class = "section__partners_rowone"> 
+<a href="#"> <img src="img/bosh.png" alt="Technomart" class="item" width="265"> </a> 
+<a href="#"> <img src="img/makita.png" alt="Technomart" class="item" width="265"> </a> 
+<a href="#"> <img src="img/dewalt.png" alt="Technomart" class="item" width="264.5"> </a> 
+<a href="#"> <img src="img/interskol.png" alt="Technomart" class="item" width="264.5"> </a> </div>
+<div class = "section__partners_rowtwo">
+<a href="#"> <img src="img/hitachi.png" alt="Technomart" class="itemt" width="265"> </a> 
+<a href="#"> <img src="img/lg.png" alt="Technomart" class="itemt" width="265"> </a> 
+<a href="#"> <img src="img/aeg.png" alt="Technomart" class="itemt" width="263.6"> </a>
+<a href="#"> <img src="img/metabo.png" alt="Technomart" class="itemt" width="264.5"> </a>  </div>
+</div>
+<aside class = "aside"> 
+<div class="aside__text_h1 h1_one_position"> Сервисы </div>
+<div class="aside__just_text just_text_position_one"> Хороший интернет-магазин отличается от плохого не только ценами!
+    Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными. </div>
+<div class="aside__text_h1 h1_two_position"> Доставка </div>
+<div class="aside__just_text just_text_position_two"> Мы с удовольствием доставим ваш товар прямо 
+    к вашему подъезду совершенно бесплатно!
+    Ведь мы неплохо заработаем, 
+    поднимая его на ваш этаж!  </div>
+<div class="aside_menu">
+ <a href="#" class="aside__menu_delivery"> <div class="aside_menu_text_blue text_position_blue"> Доставка </div></a> 
+<a href="#" class="aside__menu_guarantee"><div class="aside_menu_text text_position">Гарантия</div></a>
+ <a href="#" class="aside__menu_credit "><div class="aside_menu_text text_position_credit"> Кредит</div></a>
+</div>
+<img src="img/car.png" alt="Technomart" class="aside_img" width=""> 
+</aside>
 </body>
+<article>  
+<div class ="article article_section">
+<div class="article_hone_position ">КОМПАНИЯ «Техномарт»</div>
+<div class="aside__just_text article_textone_position">Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта и строительства не оставит равнодушными любителей сэкономить.
+<p>Мы можем доставить ваш товар в самые отдаленные точки России! Техномарт работает со многими транспортными компаниями: </p> </div> 
+<div class="aside__text_h1 article_htwo_position"> КОНТАКТЫ</div>
+<div class="aside__just_text article_texttwo_position">Вы можете забрать товар сами, заехав в наш офис:</div>
+<div class=""></div>
+<ul class="article_ul">
+    <li class="article__text_li"><img src="img/line.png" class="line_one"> Деловые линии</li>
+    <li class="article__text_li"><img src="img/line.png" class="line_two"> Автотрейдинг</li>
+    <li class="article__text_li"><img src="img/line.png" class="line_three"> ЖилДорЭкспедиция</li>
+<a href="#">  <button type="submit"class="button article__button_one"><div class="button_text article_button_textone">Подробнее о компании</div></button> </a>
+<a href="#">  <button type="submit"class="button article__button_two"><div class="button_text article_button_texttwo">Заблудились? НапиШИТЕ НАМ!</div></button> </a>
+</ul>
+<div class ="maps">
+<a href="https://yandex.ru/maps/?um=constructor%3Af0ea7993f76a37fdfdd9d633389326bafc2e5329e563a02c6acf06a0005d7e5d&amp;source=constructorStatic" target="_blank"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Af0ea7993f76a37fdfdd9d633389326bafc2e5329e563a02c6acf06a0005d7e5d&amp;width=300&amp;height=158&amp;lang=ru_RU" alt="" style="border: 0;" /></a>
+</div>
+</div>
+</article>
+<footer class="footer">
+<a class="logo footer__logo">
+<img src="img/logo.svg" alt="Technomart" class="logo_text footer__logo_text" width="120"> </a>      
+<div class="footer__box"> <a class ="aside__just_text footer__text_last"> © 2010–2021 Компания «Техномарт» <br> Все права защищены </a> </div>
+<div class = "footer_text footer_text_address">
+г. Санкт-Петербург, наб. Реки Карповки, 5 лит П
+<br>+7 800 555-86-28  </div>
+<nav class="menu__footer">
+    <a href="#" class="footer_text item_footer">Компания</a>
+    <a href="#" class="footer_text item_footer">Каталог</a>
+    <a href="#" class="footer_text item_footer">Новости</a>
+    <a href="#" class="footer_text item_footer">Доставка</a>
+    <a href="#" class="footer_text item_footer">Контакты</a>
+    </nav>
+</footer>
 </html>
