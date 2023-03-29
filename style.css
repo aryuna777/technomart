@@ -1,15 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
-.header {
-}
-
 .header_img {
 height: 400px;
-
-z-index:1;
- }
-.header__layer
-{
+z-index:1; }
+.header__layer {
 position: absolute;
 left: 0%;
 right: 0%;
@@ -27,11 +21,11 @@ z-index:10;
 left: 10.83%;
 right: 70.83%;
 top: 0%;
-bottom: 90.31%;   }
+bottom: 90.31%; }
 
 .logo_text  {
-    width: 140;
-    height: 18; }
+width: 140;
+height: 18; }
 
 .header__logo_text {
 position: absolute;
@@ -42,9 +36,8 @@ bottom: 90.62%; }
 
 .section__phone {
 position: absolute;
- top:19.5%;
- left:43.5%;  
-}
+top:19.5%;
+left:43.5%;  }
 .header__layer_text {
 font-family: 'Cuprum';
 font-style: normal;
@@ -54,8 +47,7 @@ line-height: 24px;
 display: inline-flex;
 align-items: center;
 color: #FFFFFF;
-text-decoration: none;
-}
+text-decoration: none; }
 .header__layer__search {
 position: absolute;
 left: 35%;
